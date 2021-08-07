@@ -10,8 +10,6 @@ export class AuthComponent implements OnInit {
   windowRef: Window | null | undefined;
 
   constructor() {
-    // console.log("login called")
-    // this.openLoginWindow();
   }
 
   ngOnInit(): void {
