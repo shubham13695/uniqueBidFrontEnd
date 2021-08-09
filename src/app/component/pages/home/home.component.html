@@ -14,34 +14,39 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let p of product">
             <div class="profile-card-4 text-center">
-                <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW9iaWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                <img [src]="p.bannerImage"
                     class="img img-responsive">
                 <div class="profile-content">
-                    <div class="profile-name">John Doe
+                    <!-- <div class="profile-name">John Doe
                         <p>@johndoedesigner</p>
+                    </div> -->
+                    <!-- <div class="profile-description">{{p.name}}</div> -->
+                    <div class="profile-description">{{p.longDesc}}</div>
+                    <div lcass="col-6">
+                        <div class="profile-time">Start : {{p.startDate|date:'medium'}} </div>
                     </div>
-                    <div class="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                        nonumy
-                        eirmod tempor.</div>
-                    <div class="row px-2">
-                        <div class="col-xs-4 px-1">
+                    <div lcass="col-6">
+                        <div class="profile-time">End : {{p.endDate|date:'medium'}} </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-4 px-2">
                             <div class="profile-overview">
-                                <p>TWEETS</p>
-                                <h4>1300</h4>
+                                <p>MIN</p>
+                                <h4>{{p.cutOffPrice|currency:'INR':'symbol':'.0'}}</h4>
                             </div>
                         </div>
-                        <div class="col-xs-4 px-1">
+                        <div class="col-4 px-2">
                             <div class="profile-overview">
-                                <p>FOLLOWERS</p>
-                                <h4>250</h4>
+                                <p>MAX</p>
+                                <h4>{{p.price|currency:'INR':'symbol':'.0'}}</h4>
                             </div>
                         </div>
-                        <div class="col-xs-4 px-1">
+                        <div class="col-4 px-2">
                             <div class="profile-overview">
-                                <p>FOLLOWING</p>
-                                <h4>168</h4>
+                                <p>ENTERIES</p>
+                                <h4>{{p.numberEnteries}}</h4>
                             </div>
                         </div>
                     </div>

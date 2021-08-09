@@ -11,14 +11,40 @@
 }
 img{
   max-width: 100%;
-  width: 100%;
-  height: auto !important;
+  height:15rem;
 }
+@media (max-width:767px) {
+    img {
+        height:15rem;
+    }
+  }
+  
+  @media (min-width:768px) {
+    .portfolio img {
+        max-width: 240px;
+        max-height: 240px;
+    }
+  }
+  
+  @media (min-width:992px) {
+    .portfolio img {
+        max-width: 314px;
+        max-height: 314px;
+    }
+  }
+  
+  @media (min-width:1200px) {
+    .portfolio img {
+        max-width: 380px;
+        max-height: 380px;
+    }
+  }
+  
 
 @media (max-width:767px) {
   .portfolio img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 240px;
+      max-height: 240px;
   }
 }
 
@@ -71,8 +97,16 @@ img{
 
 .profile-card-4 .profile-description {
     color: #777;
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px;
+    font-weight:600;
+}
+
+.profile-card-4 .profile-time {
+    color: #777;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: 500;
 }
 
 .profile-card-4 .profile-overview {
@@ -88,6 +122,7 @@ img{
 .profile-card-4 .profile-overview h4 {
     color: #273751;
     font-weight: bold;
+    font-size:1rem;
 }
 
 .profile-card-4 .profile-content::before {
