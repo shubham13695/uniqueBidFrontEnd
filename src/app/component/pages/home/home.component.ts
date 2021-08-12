@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   accessToken:string="";
   params:string = "";
   product:any = [];
+  currentDate:Date = new Date();
+  listType="active";
+
   constructor(
     private router:Router,
     private authService:AuthService,
@@ -48,10 +51,15 @@ export class HomeComponent implements OnInit {
   }
 
   getData(){
-    this.homeService.getActiveProduct().subscribe(({data}:any)=>{
+    this.homeService.getActiveProduct(this.listType).subscribe(({data}:any)=>{
       console.log(data);
       this.product = data.data;
     });
+  }
+
+  switchList(listType:string){
+    this.listType = listType;
+    this.getData();
   }
 
 }

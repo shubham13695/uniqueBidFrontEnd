@@ -2,50 +2,39 @@
     <div class="row justify-content-center pb-4">
         <ul class="nav nav-tabs nav-justified">
             <li class="nav-item">
-                <a class="nav-link">ACTIVE</a>
+                <a class="nav-link" [ngClass]="listType=='active'?'active':''" (click)="switchList('active')">LIVE </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active">UPCOMMING</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">RESULT</a>
+                <a class="nav-link" [ngClass]="listType=='inactive'?'active':''" (click)="switchList('inactive')">PREVIOUS</a>
             </li>
         </ul>
     </div>
 
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let p of product">
+        <div class="col-sm-6 col-md-4 col-lg-4" *ngFor="let p of product">
             <div class="profile-card-4 text-center">
-                <img [src]="p.bannerImage"
-                    class="img img-responsive">
+                <img [src]="p.bannerImage" class="img img-responsive">
                 <div class="profile-content">
-                    <!-- <div class="profile-name">John Doe
-                        <p>@johndoedesigner</p>
-                    </div> -->
-                    <!-- <div class="profile-description">{{p.name}}</div> -->
-                    <div class="profile-description">{{p.longDesc}}</div>
-                    <div lcass="col-6">
-                        <div class="profile-time">Start : {{p.startDate|date:'medium'}} </div>
-                    </div>
-                    <div lcass="col-6">
-                        <div class="profile-time">End : {{p.endDate|date:'medium'}} </div>
-                    </div>
+                    <div class="profile-description">{{p.name}}</div>
+                    <div class="profile-time">Start : <span>{{p.startDate|date:'mediumDate'}}</span>,<span>{{p.startDate|date:'shortTime'}}</span></div>
+                    <div class="profile-time">End :<span>{{p.endDate|date:'mediumDate'}}</span>,<span>{{p.endDate|date:'shortTime'}}</span> </div>
+
                     <div class="row py-2">
                         <div class="col-4 px-2">
                             <div class="profile-overview">
-                                <p>MIN</p>
-                                <h4>{{p.cutOffPrice|currency:'INR':'symbol':'.0'}}</h4>
-                            </div>
-                        </div>
-                        <div class="col-4 px-2">
-                            <div class="profile-overview">
-                                <p>MAX</p>
+                                <p>MAX BID</p>
                                 <h4>{{p.price|currency:'INR':'symbol':'.0'}}</h4>
                             </div>
                         </div>
                         <div class="col-4 px-2">
                             <div class="profile-overview">
-                                <p>ENTERIES</p>
+                                <p>MIN BID</p>
+                                <h4>{{p.cutOffPrice|currency:'INR':'symbol':'.0'}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-4 px-2">
+                            <div class="profile-overview">
+                                <p>SLOTS</p>
                                 <h4>{{p.numberEnteries}}</h4>
                             </div>
                         </div>

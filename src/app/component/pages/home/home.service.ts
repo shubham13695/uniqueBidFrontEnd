@@ -11,8 +11,8 @@ export class HomeService{
 
     }
 
-    getActiveProduct(){
-        return this.httpClient.get(`${environment.apiUrl}product`);
+    getActiveProduct(listType:string){
+        return this.httpClient.get(`${environment.apiUrl}product?list=${listType}`);
     }
 
 }
